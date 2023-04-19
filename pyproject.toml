@@ -20,6 +20,7 @@ dependencies = [
     "openai",
     "psutil",
     "click",
+    "click-option-group"
 ]
 
 [project.urls]
