@@ -20,7 +20,7 @@
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 from .languages import (BASH_PROMPT, C_PROMPT, C_SHARP_PROMPT, GO_PROMPT,
                         JAVA_PROMPT, JAVASCRIPT_PROMPT, POWERSHELL_PROMPT,
-                        PYTHON_PROMPT)
+                        PYTHON_PROMPT, LanguagePrompt)
 from .prompt import Prompt
 from .templates import BUG_REPORT_PROMPT, FEATURE_REQUEST_PROMPT
 
@@ -35,5 +35,6 @@ __all__ = [
     "FEATURE_REQUEST_PROMPT",
     "POWERSHELL_PROMPT",
     "PYTHON_PROMPT",
-    "Prompt"
+    "Prompt",
+    "LanguagePrompt"
 ]

@@ -6,6 +6,7 @@ from click_option_group import optgroup, RequiredMutuallyExclusiveOptionGroup
 from .key import get_api_key
 from .prompt import get_calling_shell, prompt_choices
 from ..service import Service
+from ..prompts import LanguagePrompt
 from ..factories import PromptFactory
 
 
@@ -44,12 +45,14 @@ def ask(ctx, query, prompt, model, refactor, document, test):
     api_key = ctx.obj.get('api_key') or get_api_key()
 
     prompt = PromptFactory.get_prompt(prompt)
-    if refactor:
-        prompt = prompt.refactoring
-    elif document:
-        prompt = prompt.documentation
-    elif test:
-        prompt = prompt.testing
+
+    if isinstance(prompt, LanguagePrompt):
+        if refactor:
+            prompt = prompt.refactoring
+        elif document:
+            prompt = prompt.documentation
+        elif test:
+            prompt = prompt.testing
 
     print(
         Service(
