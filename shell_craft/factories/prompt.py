@@ -35,7 +35,7 @@ class PromptFactory:
 
         Returns:
             Prompt: A new prompt object.
-        """        
+        """
         import shell_craft.prompts as prompts
 
         available_prompts = [

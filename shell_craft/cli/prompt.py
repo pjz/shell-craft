@@ -48,6 +48,17 @@ def get_calling_shell() -> str:
         return "bash"
 
 
+def prompt_choices() -> list[str]:
+    """
+    Returns a lowercase'd list of all the prompts defined in the prompts module
+    """
+    return [
+            prompt.removesuffix('_PROMPT').lower()
+            for prompt in dir(prompts)
+            if prompt.endswith("_PROMPT")
+    ]
+
+
 def add_arguments(parser: ArgumentParser):
     """
     Adds '--prompt' as an argument to the parser. The choices are the names of
@@ -60,12 +71,11 @@ def add_arguments(parser: ArgumentParser):
     parser.add_argument(
         "--prompt",
         type=str,
-        choices=[
-            prompt.removesuffix('_PROMPT').lower()
-            for prompt in dir(prompts)
-            if prompt.endswith("PROMPT")
-        ],
+        choices=prompt_choices(),
         help="The type of prompt to use.",
         nargs='?',
         default=get_calling_shell()
     )
+
+
+

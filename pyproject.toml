@@ -19,6 +19,7 @@ classifiers = [
 dependencies = [
     "openai",
     "psutil",
+    "click",
 ]
 
 [project.urls]
@@ -27,3 +28,4 @@ dependencies = [
 
 [project.scripts]
 shell-craft = "shell_craft.cli:main"
+ai = "shell_craft.cli:aimain"

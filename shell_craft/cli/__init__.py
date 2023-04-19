@@ -19,5 +19,6 @@
 # OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 from .main import main
+from .aimain import aimain
 
-__all__ = ["main"]
+__all__ = ["main", "aimain"]
